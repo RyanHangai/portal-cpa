@@ -1,0 +1,75 @@
+{
+  "perfis_acesso": [
+    {
+      "id_perfil": 1,
+      "nome": "Aluno",
+      "permissoes": {
+        "acesso_banco_dados": false,
+        "dashboards_permitidos": ["pesquisa_cpa_aluno"],
+        "relatorios_permitidos": ["relatorio_aluno"],
+        "paginas_publicas": ["contato_professor"]
+      }
+    },
+    {
+      "id_perfil": 2,
+      "nome": "Professor",
+      "permissoes": {
+        "acesso_banco_dados": false,
+        "dashboards_permitidos": [
+          "pesquisa_cpa_professor",
+          "pesquisa_cpa_aluno"
+        ],
+        "relatorios_permitidos": ["relatorio_professor", "relatorio_aluno"],
+        "paginas_publicas": ["mural_devolutivas", "contato"]
+      }
+    },
+    {
+      "id_perfil": 3,
+      "nome": "Coordenador",
+      "permissoes": {
+        "acesso_banco_dados": true,
+        "dashboards_permitidos": [
+          "relatorio_curso",
+          "relatorio_professor",
+          "relatorio_aluno"
+        ],
+        "relatorios_permitidos": [
+          "relatorio_curso",
+          "relatorio_professor",
+          "relatorio_aluno"
+        ],
+        "paginas_publicas": ["mural_devolutivas", "contato"]
+      }
+    },
+    {
+      "id_perfil": 4,
+      "nome": "Diretor",
+      "permissoes": {
+        "acesso_banco_dados": true,
+        "dashboards_permitidos": ["todos"],
+        "relatorios_permitidos": ["todos"],
+        "paginas_publicas": ["todos"]
+      }
+    },
+    {
+      "id_perfil": 5,
+      "nome": "Administrativo",
+      "permissoes": {
+        "acesso_banco_dados": true,
+        "dashboards_permitidos": ["pesquisa_cpa_administrativo"],
+        "relatorios_permitidos": ["relatorio_administrativo"],
+        "paginas_publicas": ["mural_devolutivas", "contato"]
+      }
+    },
+    {
+      "id_perfil": 6,
+      "nome": "CPA Externo",
+      "permissoes": {
+        "acesso_banco_dados": false,
+        "dashboards_permitidos": ["todos"],
+        "relatorios_permitidos": ["todos"],
+        "paginas_publicas": ["mural_devolutivas", "contato"]
+      }
+    }
+  ]
+}
