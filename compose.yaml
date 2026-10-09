@@ -1,0 +1,48 @@
+name: ambiente-projeto
+
+services:
+  app:
+    image: projeto/app
+    build:
+      context: .
+      dockerfile: .docker/app.dev.dockerfile
+    volumes:
+      - ./:/app
+      - pip-cache:/root/.cache/pip
+
+    environment:
+      GOOSE_DRIVER: postgres
+      GOOSE_DBSTRING: postgres://postgres:postgres@db:5432/banco-de-dados
+      GOOSE_MIGRATION_DIR: /app/database/scripts
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.projeto-portfolio.rule=Host(`ryan.localhost`)"
+      - "traefik.http.routers.projeto-portfolio.service=projeto-portfolio"
+      - "traefik.http.services.projeto-portfolio.loadbalancer.server.port=8501"
+
+  db:
+    image: postgres:18
+    ports:
+      - 9999:5432
+    volumes:
+      - db-data:/var/lib/postgresql/18/docker
+
+    environment:
+      POSTGRES_DB: banco-de-dados
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  dev-adminer:
+    image: adminer
+    environment:
+      - ADMINER_DEFAULT_SERVER=db
+      - ADMINER_DESIGN=nette
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.db-portfolio.rule=Host(`db.ryan.localhost`)"
+      - "traefik.http.services.db-portfolio.loadbalancer.server.port=8080"
+
+volumes:
+  db-data:
+  pip-cache:
