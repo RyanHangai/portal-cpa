@@ -35,6 +35,7 @@ Abaixo estão os requisitos não funcionais (RNFs) que definem as restrições, 
 
 * **RNF04 - Bloqueio de Acesso aos Dados Brutos:** A arquitetura do sistema e as permissões de infraestrutura devem garantir rigorosamente que usuários logados com perfis de liderança acadêmica (Coordenadores e Diretores) não tenham qualquer rota de acesso ao banco de dados bruto.
 * **RNF05 - Permissão Técnica Exclusiva:** O acesso direto e técnico ao banco de dados relacional deve ser configurado para permitir acesso apenas aos membros do CPA Fixo (equipe executora e administrativa técnica).
+* **RNF06 - Inatividade Após Login:** Depois de qualquer usuário fizer login, ele terá um prazo de 1 semana (168 horas) para entrar no site sem que tenha que fazer login novamente, se passar esse prazo o usuário é automaticamente desconectado e terá de fazer o login novamente.
 
 ## 3. Integrações de Terceiros e Usabilidade
 
