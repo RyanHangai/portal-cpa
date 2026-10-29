@@ -9,8 +9,9 @@
 ## 2. Visualização de Dashboards e Relatórios
 * **RF05 - Exibição Personalizada de Dashboards:** O portal deve exibir na página inicial os dashboards (Google Data Studio) baseados estritamente no perfil do usuário logado:
   * **Aluno:** Acesso exclusivo aos relatórios e pesquisas de alunos.
-  * **Professor:** Acesso aos relatórios referentes ao corpo administrativo, aos professores e aos alunos.
-  * **Coordenador e Diretor:** Acesso a todos os relatórios (pesquisas da CPA, avaliação docente e egressos), sem acesso à base de dados.
+  * **Professor:** Acesso aos relatórios referentes aos professores e aos alunos.
+  * **Coordenador:** Acesso a todos os relatórios (pesquisas da CPA, avaliação docente e egressos), sem acesso à base de dados.
+  *  **Diretor:** Acesso a todos os relatórios e acesso à base de dados.
   * **Administrativo:** Acesso definido conforme a regra de negócio da área (a definir, mas restrito em relação à diretoria).
   * **CPA Externo (Avaliadores):** Acesso total a todos os relatórios institucionais.
 * **RF06 - Acesso Exclusivo à Base de Dados:** O sistema deve garantir que apenas usuários logados com o perfil "Diretor" e "Administrativo" consigam visualizar e acessar a base de dados bruta do projeto.
