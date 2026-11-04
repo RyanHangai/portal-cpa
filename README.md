@@ -19,7 +19,7 @@ Desenvolver um portal web para a CPA que centralize e apresente, de forma estrut
 - Dashboards: Google Data Studio
 
 ## Etapas do projeto
-- [ ] Levantamento de requisitos com a CPA.
+- [x] Levantamento de requisitos com a CPA.
 - [ ] Modelagem do banco de dados e criação dos perfis de acesso.
 - [ ] Desenvolvimento do portal e integração dos dashboards.
 - [ ] Criação do mural de devolutivas e área de relatórios.
