@@ -1,6 +1,6 @@
 services:
   app:
-    image: python:3.14
+    image: portal-cpa/app
     working_dir: /app
     build:
       context: .
@@ -8,24 +8,20 @@ services:
     volumes:
       - ./:/app
       - pip-cache:/root/.cache/pip
-    environment:
-      GOOSE_DRIVER: postgres
-      GOOSE_DBSTRING: postgres://postgres:postgres@db:5432/bd-portal
-      GOOSE_MIGRATION_DIR: /app/database/database.sql
     ports:
       - "8002:8501"
 
   postgres:
     image: postgres:18
-    container_name: portal-cpa-postgres
     environment:
-      POSTGRES_DB: bd-portal
+      POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
       - "8001:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
+      - ./database/database.sql:/docker-entrypoint-initdb.d/database.sql:ro
 
 volumes:
   postgres_data:
