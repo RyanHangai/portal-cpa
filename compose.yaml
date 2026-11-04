@@ -7,3 +7,18 @@ services:
     ports:
       - "8501:8501"
     command: sh -c "pip install -r requirements.txt && streamlit run src/main.py"
+
+  postgres:
+    image: postgres:18
+    container_name: portal-cpa-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "8001:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
