@@ -115,8 +115,8 @@
     {
       "id": "DOlV7BEcE_25vr61wkTUb",
       "name": "aluno",
-      "x": -129.26598034469663,
-      "y": 316.108391175689,
+      "x": -79.62347743338415,
+      "y": 319.2110476076459,
       "locked": false,
       "fields": [
         {
@@ -128,7 +128,7 @@
           "unique": true,
           "unsigned": true,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
           "id": "ptmF5OWiVLdMn-WrgJZwO"
         },
@@ -266,7 +266,7 @@
           "default": "",
           "check": "",
           "primary": false,
-          "unique": false,
+          "unique": true,
           "notNull": true,
           "increment": false,
           "comment": "",
@@ -463,8 +463,8 @@
     {
       "id": "LgxdVt9PZIx4bNT0ewTyP",
       "name": "coordenador",
-      "x": -165.94476934763463,
-      "y": -111.11046635257978,
+      "x": -124.05890751621439,
+      "y": -125.07242029638644,
       "locked": false,
       "fields": [
         {
@@ -611,7 +611,7 @@
       "startFieldId": "qYkGe0UZr9R1B-DV1fKuc",
       "endTableId": "DOlV7BEcE_25vr61wkTUb",
       "endFieldId": "ptmF5OWiVLdMn-WrgJZwO",
-      "cardinality": "one_to_one",
+      "cardinality": "many_to_one",
       "fields": [
         {
           "startFieldId": "qYkGe0UZr9R1B-DV1fKuc",
@@ -625,20 +625,20 @@
       "id": "7kaTdLX5h1-ZwQyR3-cch"
     },
     {
-      "startTableId": "v98jKI7D0rM55TJpd0Sbr",
-      "startFieldId": "Jq40IIR-XNEEqP2WcbkQa",
-      "endTableId": "uBPKyshICSE7cRSrJOXrR",
-      "endFieldId": "i1h7kbbUl4ssniLjAZxoo",
+      "startTableId": "uBPKyshICSE7cRSrJOXrR",
+      "startFieldId": "i1h7kbbUl4ssniLjAZxoo",
+      "endTableId": "v98jKI7D0rM55TJpd0Sbr",
+      "endFieldId": "Jq40IIR-XNEEqP2WcbkQa",
       "cardinality": "one_to_one",
       "fields": [
         {
-          "startFieldId": "Jq40IIR-XNEEqP2WcbkQa",
-          "endFieldId": "i1h7kbbUl4ssniLjAZxoo"
+          "startFieldId": "i1h7kbbUl4ssniLjAZxoo",
+          "endFieldId": "Jq40IIR-XNEEqP2WcbkQa"
         }
       ],
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
-      "name": "fk_turma_id_matricula",
+      "name": "fk_matricula_turma_id_turma",
       "color": "#808080",
       "id": "ul9llun-EBBZxxtRp3mOa"
     },
