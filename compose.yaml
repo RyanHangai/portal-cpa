@@ -2,17 +2,24 @@ services:
   app:
     image: python:3.14
     working_dir: /app
+    build:
+      context: .
+      dockerfile: .docker/app.dev.dockerfile
     volumes:
-      - .:/app
+      - ./:/app
+      - pip-cache:/root/.cache/pip
+    environment:
+      GOOSE_DRIVER: postgres
+      GOOSE_DBSTRING: postgres://postgres:postgres@db:5432/bd-portal
+      GOOSE_MIGRATION_DIR: /app/database/database.sql
     ports:
       - "8002:8501"
-    command: sh -c "pip install -r requirements.txt && streamlit run src/main.py"
 
   postgres:
     image: postgres:18
     container_name: portal-cpa-postgres
-    restart: unless-stopped
     environment:
+      POSTGRES_DB: bd-portal
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -22,3 +29,4 @@ services:
 
 volumes:
   postgres_data:
+  pip-cache:
