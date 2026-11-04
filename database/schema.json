@@ -1,799 +1,83 @@
 {
   "tables": [
     {
-      "id": "t_perfis",
-      "name": "perfis",
-      "x": 0,
-      "y": 0,
-      "color": "#e3f2fd",
-      "comment": "Niveis de acesso do portal (Aluno, Professor, Coordenador, Diretor, Administrativo, CPA Externo).",
-      "is_view": false,
+      "id": "ZHs4xx3zJ_OYzH0_ZixR4",
+      "name": "usuario",
+      "x": 191.78807341179248,
+      "y": 90.4453192524477,
+      "locked": false,
       "fields": [
         {
-          "id": "f_perfis_id",
+          "id": "r-3ELe0Lcm2iCxP74FSv7",
           "name": "id",
-          "type": "SERIAL",
+          "type": "INTEGER",
           "default": "",
           "check": "",
           "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": true,
-          "comment": "Identificador do perfil."
-        },
-        {
-          "id": "f_perfis_nome",
-          "name": "nome",
-          "type": "VARCHAR(50)",
-          "default": "",
-          "check": "",
-          "primary": false,
           "unique": true,
           "notNull": true,
-          "increment": false,
-          "comment": "Nome do perfil de acesso."
-        },
-        {
-          "id": "f_perfis_descricao",
-          "name": "descricao",
-          "type": "TEXT",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Descricao do perfil."
-        },
-        {
-          "id": "f_perfis_acesso_banco_dados",
-          "name": "acesso_banco_dados",
-          "type": "BOOLEAN",
-          "default": "false",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "RF06: indica se o perfil visualiza a base bruta."
-        },
-        {
-          "id": "f_perfis_acesso_todos_dashboards",
-          "name": "acesso_todos_dashboards",
-          "type": "BOOLEAN",
-          "default": "false",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "RF05: acesso a todos os dashboards."
-        },
-        {
-          "id": "f_perfis_acesso_todos_relatorios",
-          "name": "acesso_todos_relatorios",
-          "type": "BOOLEAN",
-          "default": "false",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "RF05: acesso a todos os relatorios/documentos."
-        },
-        {
-          "id": "f_perfis_ativo",
-          "name": "ativo",
-          "type": "BOOLEAN",
-          "default": "true",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Perfil habilitado para uso."
-        }
-      ],
-      "indexes": []
-    },
-    {
-      "id": "t_cursos",
-      "name": "cursos",
-      "x": 760,
-      "y": 0,
-      "color": "#e8f5e9",
-      "comment": "Cursos geridos pela instituicao (RF04).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_cursos_id",
-          "name": "id",
-          "type": "SERIAL",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
           "increment": true,
-          "comment": "Identificador do curso."
+          "comment": "Identificador do usuario\n",
+          "size": "",
+          "values": []
         },
         {
-          "id": "f_cursos_nome",
+          "id": "oipGAg6P4V98iqshxKlol",
           "name": "nome",
-          "type": "VARCHAR(150)",
+          "type": "VARCHAR",
           "default": "",
           "check": "",
           "primary": false,
           "unique": false,
           "notNull": true,
           "increment": false,
-          "comment": "Nome do curso."
+          "comment": "",
+          "size": 255
         },
         {
-          "id": "f_cursos_modalidade",
-          "name": "modalidade",
-          "type": "VARCHAR(20)",
-          "default": "",
-          "check": "modalidade IS NULL OR modalidade IN ('presencial', 'ead')",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Modalidade: presencial ou ead."
-        },
-        {
-          "id": "f_cursos_ativo",
-          "name": "ativo",
-          "type": "BOOLEAN",
-          "default": "true",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Curso ativo."
-        },
-        {
-          "id": "f_cursos_criado_em",
-          "name": "criado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de criacao."
-        },
-        {
-          "id": "f_cursos_atualizado_em",
-          "name": "atualizado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de ultima atualizacao."
-        }
-      ],
-      "indexes": []
-    },
-    {
-      "id": "t_usuarios",
-      "name": "usuarios",
-      "x": 380,
-      "y": 0,
-      "color": "#e3f2fd",
-      "comment": "Contas de acesso ao portal (RF01, RF02, RF03).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_usuarios_id",
-          "name": "id",
-          "type": "SERIAL",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": true,
-          "comment": "Identificador do usuario."
-        },
-        {
-          "id": "f_usuarios_perfil_id",
-          "name": "perfil_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Perfil de acesso (RF03)."
-        },
-        {
-          "id": "f_usuarios_curso_id",
-          "name": "curso_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Curso vinculado (aluno, professor, coordenador)."
-        },
-        {
-          "id": "f_usuarios_nome",
-          "name": "nome",
-          "type": "VARCHAR(150)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Nome completo."
-        },
-        {
-          "id": "f_usuarios_email",
+          "id": "7xYDjHKsy7sOO7Xh5CwoG",
           "name": "email",
-          "type": "VARCHAR(255)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "E-mail institucional (login)."
-        },
-        {
-          "id": "f_usuarios_senha_hash",
-          "name": "senha_hash",
-          "type": "VARCHAR(255)",
+          "type": "VARCHAR",
           "default": "",
           "check": "",
           "primary": false,
           "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Hash da senha."
-        },
-        {
-          "id": "f_usuarios_matricula",
-          "name": "matricula",
-          "type": "VARCHAR(50)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": true,
           "notNull": false,
           "increment": false,
-          "comment": "Matricula/registro institucional."
+          "comment": "",
+          "size": 255
         },
         {
-          "id": "f_usuarios_cpa_fixo",
-          "name": "cpa_fixo",
-          "type": "BOOLEAN",
-          "default": "false",
+          "id": "E1WIxV3az24D3lCJ8UPIU",
+          "name": "senha",
+          "type": "VARCHAR",
+          "default": "",
           "check": "",
           "primary": false,
           "unique": false,
           "notNull": true,
           "increment": false,
-          "comment": "RF07: membro do CPA Fixo com direito a voto."
+          "comment": "",
+          "size": ""
         },
         {
-          "id": "f_usuarios_ativo",
+          "id": "SOKB682jfqrd3FH1YkTsw",
           "name": "ativo",
           "type": "BOOLEAN",
-          "default": "true",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Conta ativa."
-        },
-        {
-          "id": "f_usuarios_criado_por",
-          "name": "criado_por",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Usuario que criou a conta (RF03)."
-        },
-        {
-          "id": "f_usuarios_ultimo_acesso",
-          "name": "ultimo_acesso",
-          "type": "TIMESTAMPTZ",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "RNF06: ultimo acesso registrado."
-        },
-        {
-          "id": "f_usuarios_criado_em",
-          "name": "criado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de criacao."
-        },
-        {
-          "id": "f_usuarios_atualizado_em",
-          "name": "atualizado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de ultima atualizacao."
-        }
-      ],
-      "indexes": [
-        {
-          "id": "i_idx_usuarios_perfil",
-          "name": "idx_usuarios_perfil",
-          "unique": false,
-          "fields": [{ "id": "f_usuarios_perfil_id", "name": "perfil_id" }]
-        },
-        {
-          "id": "i_idx_usuarios_curso",
-          "name": "idx_usuarios_curso",
-          "unique": false,
-          "fields": [{ "id": "f_usuarios_curso_id", "name": "curso_id" }]
-        }
-      ]
-    },
-    {
-      "id": "t_curso_coordenadores",
-      "name": "curso_coordenadores",
-      "x": 1140,
-      "y": 0,
-      "color": "#e8f5e9",
-      "comment": "Vinculo entre curso e o(s) coordenador(es) (RF04).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_curso_coordenadores_curso_id",
-          "name": "curso_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "Curso coordenado."
-        },
-        {
-          "id": "f_curso_coordenadores_usuario_id",
-          "name": "usuario_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Usuario com perfil de coordenador."
-        },
-        {
-          "id": "f_curso_coordenadores_criado_em",
-          "name": "criado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data do vinculo."
-        }
-      ],
-      "indexes": []
-    },
-    {
-      "id": "t_aulas",
-      "name": "aulas",
-      "x": 0,
-      "y": 420,
-      "color": "#e8f5e9",
-      "comment": "Temas de aula, carga horaria e dias de aula por curso (RF04).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_aulas_id",
-          "name": "id",
-          "type": "SERIAL",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": true,
-          "comment": "Identificador da aula/tema."
-        },
-        {
-          "id": "f_aulas_curso_id",
-          "name": "curso_id",
-          "type": "INTEGER",
           "default": "",
           "check": "",
           "primary": false,
           "unique": false,
           "notNull": true,
           "increment": false,
-          "comment": "Curso da aula."
+          "comment": "",
+          "size": "",
+          "values": [],
+          "isArray": false
         },
         {
-          "id": "f_aulas_professor_id",
-          "name": "professor_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Professor responsavel."
-        },
-        {
-          "id": "f_aulas_tema",
-          "name": "tema",
-          "type": "VARCHAR(255)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Tema/conteudo da aula."
-        },
-        {
-          "id": "f_aulas_carga_horaria",
-          "name": "carga_horaria",
-          "type": "SMALLINT",
-          "default": "",
-          "check": "carga_horaria > 0",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Carga horaria em horas."
-        },
-        {
-          "id": "f_aulas_dia_semana",
-          "name": "dia_semana",
-          "type": "SMALLINT",
-          "default": "",
-          "check": "dia_semana BETWEEN 1 AND 7",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Dia da semana (1=segunda ... 7=domingo)."
-        },
-        {
-          "id": "f_aulas_horario_inicio",
-          "name": "horario_inicio",
-          "type": "TIME",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Horario de inicio."
-        },
-        {
-          "id": "f_aulas_horario_fim",
-          "name": "horario_fim",
-          "type": "TIME",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Horario de termino."
-        },
-        {
-          "id": "f_aulas_ativo",
-          "name": "ativo",
-          "type": "BOOLEAN",
-          "default": "true",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Aula ativa."
-        },
-        {
-          "id": "f_aulas_criado_em",
-          "name": "criado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de criacao."
-        },
-        {
-          "id": "f_aulas_atualizado_em",
-          "name": "atualizado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de ultima atualizacao."
-        }
-      ],
-      "indexes": [
-        {
-          "id": "i_idx_aulas_curso",
-          "name": "idx_aulas_curso",
-          "unique": false,
-          "fields": [{ "id": "f_aulas_curso_id", "name": "curso_id" }]
-        },
-        {
-          "id": "i_idx_aulas_professor",
-          "name": "idx_aulas_professor",
-          "unique": false,
-          "fields": [{ "id": "f_aulas_professor_id", "name": "professor_id" }]
-        }
-      ]
-    },
-    {
-      "id": "t_dashboards",
-      "name": "dashboards",
-      "x": 380,
-      "y": 420,
-      "color": "#fff8e1",
-      "comment": "Dashboards do Google Data Studio exibidos no portal (RF05, RNF03).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_dashboards_id",
-          "name": "id",
-          "type": "SERIAL",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": true,
-          "comment": "Identificador do dashboard."
-        },
-        {
-          "id": "f_dashboards_nome",
-          "name": "nome",
-          "type": "VARCHAR(150)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Nome de exibicao."
-        },
-        {
-          "id": "f_dashboards_slug",
-          "name": "slug",
-          "type": "VARCHAR(100)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "Identificador unico usado no codigo."
-        },
-        {
-          "id": "f_dashboards_url",
-          "name": "url",
-          "type": "TEXT",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "URL de embed do Google Data Studio."
-        },
-        {
-          "id": "f_dashboards_modalidade",
-          "name": "modalidade",
-          "type": "VARCHAR(20)",
-          "default": "",
-          "check": "modalidade IS NULL OR modalidade IN ('presencial', 'ead')",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Modalidade quando aplicavel (presencial/ead)."
-        },
-        {
-          "id": "f_dashboards_ativo",
-          "name": "ativo",
-          "type": "BOOLEAN",
-          "default": "true",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Dashboard disponivel."
-        }
-      ],
-      "indexes": []
-    },
-    {
-      "id": "t_perfil_dashboard",
-      "name": "perfil_dashboard",
-      "x": 760,
-      "y": 420,
-      "color": "#fff8e1",
-      "comment": "Relaciona perfis aos dashboards permitidos (RF05).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_perfil_dashboard_perfil_id",
-          "name": "perfil_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Perfil de acesso."
-        },
-        {
-          "id": "f_perfil_dashboard_dashboard_id",
-          "name": "dashboard_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Dashboard liberado."
-        }
-      ],
-      "indexes": []
-    },
-    {
-      "id": "t_documentos",
-      "name": "documentos",
-      "x": 1140,
-      "y": 420,
-      "color": "#ffebee",
-      "comment": "Relatorios de autoavaliacao e boletins informativos (RF09).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_documentos_id",
-          "name": "id",
-          "type": "SERIAL",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": true,
-          "comment": "Identificador do documento."
-        },
-        {
-          "id": "f_documentos_titulo",
-          "name": "titulo",
-          "type": "VARCHAR(200)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Titulo do documento."
-        },
-        {
-          "id": "f_documentos_descricao",
-          "name": "descricao",
-          "type": "TEXT",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Descricao/resumo."
-        },
-        {
-          "id": "f_documentos_tipo",
-          "name": "tipo",
-          "type": "VARCHAR(50)",
-          "default": "",
-          "check": "tipo IN ('relatorio_autoavaliacao', 'boletim', 'outro')",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Tipo do documento."
-        },
-        {
-          "id": "f_documentos_categoria",
-          "name": "categoria",
-          "type": "VARCHAR(100)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Categoria institucional."
-        },
-        {
-          "id": "f_documentos_arquivo_url",
-          "name": "arquivo_url",
-          "type": "TEXT",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Caminho ou URL do arquivo."
-        },
-        {
-          "id": "f_documentos_publico",
-          "name": "publico",
-          "type": "BOOLEAN",
-          "default": "false",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Visivel sem login quando true."
-        },
-        {
-          "id": "f_documentos_autor_id",
-          "name": "autor_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Usuario responsavel pela publicacao."
-        },
-        {
-          "id": "f_documentos_data_publicacao",
-          "name": "data_publicacao",
+          "id": "yPBgUbr5QeXb-HMrzAjBG",
+          "name": "data_nasc",
           "type": "DATE",
           "default": "",
           "check": "",
@@ -801,138 +85,13 @@
           "unique": false,
           "notNull": false,
           "increment": false,
-          "comment": "Data de publicacao."
+          "comment": "",
+          "size": "",
+          "values": []
         },
         {
-          "id": "f_documentos_criado_em",
-          "name": "criado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de criacao."
-        },
-        {
-          "id": "f_documentos_atualizado_em",
-          "name": "atualizado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de ultima atualizacao."
-        }
-      ],
-      "indexes": [
-        {
-          "id": "i_idx_documentos_tipo",
-          "name": "idx_documentos_tipo",
-          "unique": false,
-          "fields": [{ "id": "f_documentos_tipo", "name": "tipo" }]
-        }
-      ]
-    },
-    {
-      "id": "t_perfil_documento",
-      "name": "perfil_documento",
-      "x": 0,
-      "y": 840,
-      "color": "#ffebee",
-      "comment": "Relaciona perfis aos documentos/relatorios permitidos (RF05).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_perfil_documento_perfil_id",
-          "name": "perfil_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Perfil de acesso."
-        },
-        {
-          "id": "f_perfil_documento_documento_id",
-          "name": "documento_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Documento liberado."
-        }
-      ],
-      "indexes": []
-    },
-    {
-      "id": "t_mural_devolutivas",
-      "name": "mural_devolutivas",
-      "x": 380,
-      "y": 840,
-      "color": "#ffebee",
-      "comment": "Publicacoes publicas com resolucoes e respostas das areas (RF08).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_mural_devolutivas_id",
-          "name": "id",
-          "type": "SERIAL",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": true,
-          "comment": "Identificador da publicacao."
-        },
-        {
-          "id": "f_mural_devolutivas_titulo",
-          "name": "titulo",
-          "type": "VARCHAR(200)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Titulo da devolutiva."
-        },
-        {
-          "id": "f_mural_devolutivas_area",
-          "name": "area",
-          "type": "VARCHAR(100)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Area que responde a demanda."
-        },
-        {
-          "id": "f_mural_devolutivas_conteudo",
-          "name": "conteudo",
-          "type": "TEXT",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Texto da resolucao/resposta."
-        },
-        {
-          "id": "f_mural_devolutivas_autor_id",
-          "name": "autor_id",
+          "id": "nBXXqM6Fv7pjuMBr5HLlD",
+          "name": "cpf",
           "type": "INTEGER",
           "default": "",
           "check": "",
@@ -940,547 +99,169 @@
           "unique": false,
           "notNull": false,
           "increment": false,
-          "comment": "Usuario responsavel pela publicacao."
-        },
-        {
-          "id": "f_mural_devolutivas_publicado",
-          "name": "publicado",
-          "type": "BOOLEAN",
-          "default": "false",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Visivel ao publico quando true."
-        },
-        {
-          "id": "f_mural_devolutivas_data_publicacao",
-          "name": "data_publicacao",
-          "type": "TIMESTAMPTZ",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Data de publicacao."
-        },
-        {
-          "id": "f_mural_devolutivas_criado_em",
-          "name": "criado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de criacao."
-        },
-        {
-          "id": "f_mural_devolutivas_atualizado_em",
-          "name": "atualizado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de ultima atualizacao."
+          "comment": "",
+          "size": "",
+          "values": []
         }
       ],
-      "indexes": [
-        {
-          "id": "i_idx_mural_publicado",
-          "name": "idx_mural_publicado",
-          "unique": false,
-          "fields": [
-            { "id": "f_mural_devolutivas_publicado", "name": "publicado" },
-            {
-              "id": "f_mural_devolutivas_data_publicacao",
-              "name": "data_publicacao"
-            }
-          ]
-        }
-      ]
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "hidden": false,
+      "width": 181
     },
     {
-      "id": "t_canais_contato",
-      "name": "canais_contato",
-      "x": 760,
-      "y": 840,
-      "color": "#ffebee",
-      "comment": "Canais de comunicacao com a CPA (RF10).",
-      "is_view": false,
+      "id": "DOlV7BEcE_25vr61wkTUb",
+      "name": "aluno",
+      "x": -129.26598034469663,
+      "y": 316.108391175689,
+      "locked": false,
       "fields": [
         {
-          "id": "f_canais_contato_id",
-          "name": "id",
-          "type": "SERIAL",
+          "name": "ra",
+          "type": "INTEGER",
           "default": "",
           "check": "",
           "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": true,
-          "comment": "Identificador do canal."
-        },
-        {
-          "id": "f_canais_contato_nome",
-          "name": "nome",
-          "type": "VARCHAR(150)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Nome do canal."
-        },
-        {
-          "id": "f_canais_contato_tipo",
-          "name": "tipo",
-          "type": "VARCHAR(30)",
-          "default": "",
-          "check": "tipo IN ('google_chat', 'google_meet', 'email', 'outro')",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Tipo: google_chat, google_meet, email ou outro."
-        },
-        {
-          "id": "f_canais_contato_url",
-          "name": "url",
-          "type": "TEXT",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Link de redirecionamento."
-        },
-        {
-          "id": "f_canais_contato_descricao",
-          "name": "descricao",
-          "type": "TEXT",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Descricao do canal."
-        },
-        {
-          "id": "f_canais_contato_ativo",
-          "name": "ativo",
-          "type": "BOOLEAN",
-          "default": "true",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Canal disponivel."
-        }
-      ],
-      "indexes": []
-    },
-    {
-      "id": "t_paginas",
-      "name": "paginas",
-      "x": 1140,
-      "y": 840,
-      "color": "#e3f2fd",
-      "comment": "Paginas/secoes do portal para controle de acesso por perfil.",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_paginas_id",
-          "name": "id",
-          "type": "SERIAL",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": true,
-          "comment": "Identificador da pagina."
-        },
-        {
-          "id": "f_paginas_slug",
-          "name": "slug",
-          "type": "VARCHAR(50)",
-          "default": "",
-          "check": "",
-          "primary": false,
           "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "Identificador unico da pagina."
-        },
-        {
-          "id": "f_paginas_nome",
-          "name": "nome",
-          "type": "VARCHAR(100)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Nome de exibicao."
-        },
-        {
-          "id": "f_paginas_publica",
-          "name": "publica",
-          "type": "BOOLEAN",
-          "default": "false",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Acessivel sem login quando true."
-        },
-        {
-          "id": "f_paginas_ativo",
-          "name": "ativo",
-          "type": "BOOLEAN",
-          "default": "true",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Pagina habilitada."
-        }
-      ],
-      "indexes": []
-    },
-    {
-      "id": "t_perfil_pagina",
-      "name": "perfil_pagina",
-      "x": 0,
-      "y": 1260,
-      "color": "#e3f2fd",
-      "comment": "Relaciona perfis as paginas acessiveis.",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_perfil_pagina_perfil_id",
-          "name": "perfil_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Perfil de acesso."
-        },
-        {
-          "id": "f_perfil_pagina_pagina_id",
-          "name": "pagina_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Pagina liberada."
-        }
-      ],
-      "indexes": []
-    },
-    {
-      "id": "t_propostas_planejamento",
-      "name": "propostas_planejamento",
-      "x": 380,
-      "y": 1260,
-      "color": "#f3e5f5",
-      "comment": "Area de planejamento e sugestoes de alteracoes de cursos/aulas (RF07).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_propostas_planejamento_id",
-          "name": "id",
-          "type": "SERIAL",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
+          "unsigned": true,
           "notNull": true,
           "increment": true,
-          "comment": "Identificador da proposta."
+          "comment": "",
+          "id": "ptmF5OWiVLdMn-WrgJZwO"
         },
         {
-          "id": "f_propostas_planejamento_titulo",
-          "name": "titulo",
-          "type": "VARCHAR(200)",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Titulo da proposta."
-        },
-        {
-          "id": "f_propostas_planejamento_descricao",
-          "name": "descricao",
-          "type": "TEXT",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Descricao da alteracao."
-        },
-        {
-          "id": "f_propostas_planejamento_tipo_entidade",
-          "name": "tipo_entidade",
-          "type": "VARCHAR(30)",
-          "default": "",
-          "check": "tipo_entidade IN ('curso', 'aula')",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Entidade alvo: curso ou aula."
-        },
-        {
-          "id": "f_propostas_planejamento_entidade_id",
-          "name": "entidade_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Id do curso ou da aula (FK polimorfica)."
-        },
-        {
-          "id": "f_propostas_planejamento_dados_propostos",
-          "name": "dados_propostos",
-          "type": "JSONB",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Campos e valores propostos para a alteracao."
-        },
-        {
-          "id": "f_propostas_planejamento_status",
-          "name": "status",
-          "type": "VARCHAR(30)",
-          "default": "pendente",
-          "check": "status IN ('pendente', 'em_votacao', 'aprovada', 'rejeitada', 'implementada')",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Fluxo de aprovacao da proposta."
-        },
-        {
-          "id": "f_propostas_planejamento_criado_por",
-          "name": "criado_por",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Usuario que propos a alteracao."
-        },
-        {
-          "id": "f_propostas_planejamento_criado_em",
-          "name": "criado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de criacao."
-        },
-        {
-          "id": "f_propostas_planejamento_atualizado_em",
-          "name": "atualizado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Data de ultima atualizacao."
-        },
-        {
-          "id": "f_propostas_planejamento_decidido_em",
-          "name": "decidido_em",
-          "type": "TIMESTAMPTZ",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "Data da decisao final."
-        }
-      ],
-      "indexes": [
-        {
-          "id": "i_idx_propostas_status",
-          "name": "idx_propostas_status",
-          "unique": false,
-          "fields": [
-            { "id": "f_propostas_planejamento_status", "name": "status" }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "t_votos_planejamento",
-      "name": "votos_planejamento",
-      "x": 760,
-      "y": 1260,
-      "color": "#f3e5f5",
-      "comment": "Votos dos CPAs Fixos sobre as propostas (RF07).",
-      "is_view": false,
-      "fields": [
-        {
-          "id": "f_votos_planejamento_id",
-          "name": "id",
-          "type": "SERIAL",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": true,
-          "comment": "Identificador do voto."
-        },
-        {
-          "id": "f_votos_planejamento_proposta_id",
-          "name": "proposta_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "Proposta votada."
-        },
-        {
-          "id": "f_votos_planejamento_usuario_id",
+          "id": "1iCcm1cQaBX3zHcL5Ll09",
           "name": "usuario_id",
           "type": "INTEGER",
           "default": "",
           "check": "",
           "primary": false,
-          "unique": false,
+          "unique": true,
           "notNull": true,
           "increment": false,
-          "comment": "CPA Fixo que votou."
+          "comment": "",
+          "size": "",
+          "values": []
         },
         {
-          "id": "f_votos_planejamento_voto",
-          "name": "voto",
-          "type": "VARCHAR(20)",
+          "id": "lt8xAqAazNK2sCDynikRE",
+          "name": "curso",
+          "type": "CURSO",
           "default": "",
-          "check": "voto IN ('aprovar', 'rejeitar', 'abster')",
+          "check": "",
           "primary": false,
           "unique": false,
           "notNull": true,
           "increment": false,
-          "comment": "Decisao do voto."
+          "comment": "",
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "inherits": [],
+      "width": 243,
+      "hidden": false
+    },
+    {
+      "id": "R-PHpjccnb7M__FfSbwkm",
+      "name": "disciplina",
+      "x": -1405.520628512882,
+      "y": 337.5000425694987,
+      "locked": false,
+      "fields": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "unsigned": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": "G010bVx1nk_ubQbGhVSR3"
         },
         {
-          "id": "f_votos_planejamento_comentario",
-          "name": "comentario",
-          "type": "TEXT",
+          "id": "frJM0ALa2w8PYaigZNn1M",
+          "name": "nome",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "zHVt4odDVxMt9QKSXUAj9",
+          "name": "pertence_curso",
+          "type": "CURSO",
           "default": "",
           "check": "",
           "primary": false,
           "unique": false,
           "notNull": false,
           "increment": false,
-          "comment": "Comentario/sugestao."
+          "comment": "",
+          "size": "",
+          "values": [],
+          "isArray": true
         },
         {
-          "id": "f_votos_planejamento_criado_em",
-          "name": "criado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
+          "id": "r3hQbMAzkEFbtpF-dhVLW",
+          "name": "data_criacao",
+          "type": "DATE",
+          "default": "",
           "check": "",
           "primary": false,
           "unique": false,
           "notNull": true,
           "increment": false,
-          "comment": "Data do voto."
+          "comment": "",
+          "size": "",
+          "values": []
         }
       ],
-      "indexes": [
-        {
-          "id": "i_uq_votos_proposta_usuario",
-          "name": "uq_votos_proposta_usuario",
-          "unique": true,
-          "fields": [
-            { "id": "f_votos_planejamento_proposta_id", "name": "proposta_id" },
-            { "id": "f_votos_planejamento_usuario_id", "name": "usuario_id" }
-          ]
-        }
-      ]
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false
     },
     {
-      "id": "t_sessoes",
-      "name": "sessoes",
-      "x": 1140,
-      "y": 1260,
-      "color": "#e3f2fd",
-      "comment": "Sessoes de login com expiracao (RNF06).",
-      "is_view": false,
+      "id": "uBPKyshICSE7cRSrJOXrR",
+      "name": "matricula",
+      "x": -494.5332728728371,
+      "y": 330.1199740394821,
+      "locked": false,
       "fields": [
         {
-          "id": "f_sessoes_id",
           "name": "id",
-          "type": "SERIAL",
+          "type": "INTEGER",
           "default": "",
           "check": "",
           "primary": true,
-          "unique": false,
+          "unique": true,
+          "unsigned": true,
           "notNull": true,
           "increment": true,
-          "comment": "Identificador da sessao."
+          "comment": "",
+          "id": "fRM5N79FA23lRMkNjF88m"
         },
         {
-          "id": "f_sessoes_token",
-          "name": "token",
-          "type": "UUID",
-          "default": "gen_random_uuid()",
-          "check": "",
-          "primary": false,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "Token de sessao."
-        },
-        {
-          "id": "f_sessoes_usuario_id",
-          "name": "usuario_id",
+          "id": "qYkGe0UZr9R1B-DV1fKuc",
+          "name": "aluno_ra",
           "type": "INTEGER",
           "default": "",
           "check": "",
@@ -1488,271 +269,468 @@
           "unique": false,
           "notNull": true,
           "increment": false,
-          "comment": "Usuario da sessao."
+          "comment": "",
+          "size": "",
+          "values": []
         },
         {
-          "id": "f_sessoes_criado_em",
-          "name": "criado_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now()",
+          "id": "i1h7kbbUl4ssniLjAZxoo",
+          "name": "turma_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "3HT6-XQW-EQrT_t8Wfbs3",
+          "name": "ano",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "wJfjhWuAXMbb6ftUNfLdT",
+          "name": "semestre",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "aBawX1u4_kBz9OuSRb8zT",
+          "name": "presencial",
+          "type": "BOOLEAN",
+          "default": "",
           "check": "",
           "primary": false,
           "unique": false,
           "notNull": true,
           "increment": false,
-          "comment": "Data de criacao."
+          "comment": "",
+          "size": "",
+          "values": []
         },
         {
-          "id": "f_sessoes_expira_em",
-          "name": "expira_em",
-          "type": "TIMESTAMPTZ",
-          "default": "now() + interval '168 hours'",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "RNF06: expira em 168 horas."
-        },
-        {
-          "id": "f_sessoes_ativo",
+          "id": "Hc6t5xAkcY_u0Avk077-x",
           "name": "ativo",
           "type": "BOOLEAN",
-          "default": "true",
+          "default": "",
           "check": "",
           "primary": false,
           "unique": false,
           "notNull": true,
           "increment": false,
-          "comment": "Sessao valida."
+          "comment": "",
+          "size": "",
+          "values": []
         }
       ],
-      "indexes": [
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false
+    },
+    {
+      "id": "v98jKI7D0rM55TJpd0Sbr",
+      "name": "turma",
+      "x": -836.2383411091018,
+      "y": 339.6120585718106,
+      "locked": false,
+      "fields": [
         {
-          "id": "i_idx_sessoes_usuario",
-          "name": "idx_sessoes_usuario",
-          "unique": false,
-          "fields": [{ "id": "f_sessoes_usuario_id", "name": "usuario_id" }]
+          "name": "id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "unsigned": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": "Jq40IIR-XNEEqP2WcbkQa"
         },
         {
-          "id": "i_idx_sessoes_expira",
-          "name": "idx_sessoes_expira",
+          "id": "rb65C9G1gHmYDAyPrWPXi",
+          "name": "nome",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
           "unique": false,
-          "fields": [{ "id": "f_sessoes_expira_em", "name": "expira_em" }]
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "e09CuFNqHrXEyC0jl6f3J",
+          "name": "data_criacao",
+          "type": "TIME",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "1rLFJK9qVV9ZGCd6Lywtb",
+          "name": "periodo",
+          "type": "PERIODO",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
         }
-      ]
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false
+    },
+    {
+      "id": "sy5-FAa80iurhDrdX0wRy",
+      "name": "compoe",
+      "x": -1123.1085896996178,
+      "y": 142.61103227655713,
+      "locked": false,
+      "fields": [
+        {
+          "id": "pOMR-j3HVLrgxOFlzQVve",
+          "name": "id_turma",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "vONWuqR4zqcu2oQ3olcHG",
+          "name": "id_disciplina",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false
+    },
+    {
+      "id": "LgxdVt9PZIx4bNT0ewTyP",
+      "name": "coordenador",
+      "x": -165.94476934763463,
+      "y": -111.11046635257978,
+      "locked": false,
+      "fields": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "unsigned": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": "yFAQihXIJu51Tgmp7pp5i"
+        },
+        {
+          "id": "oVl6TtiX0qIG530SFeQns",
+          "name": "usuario_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "width": 283
+    },
+    {
+      "id": "pRMCcJK2x-0CUIHxdAnTr",
+      "name": "administrativo",
+      "x": 452.9765162431477,
+      "y": -111.95145687806868,
+      "locked": false,
+      "fields": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "unsigned": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": "yFAQihXIJu51Tgmp7pp5i"
+        },
+        {
+          "id": "oVl6TtiX0qIG530SFeQns",
+          "name": "usuario_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "width": 283
+    },
+    {
+      "id": "eGb31X7IrsC9MwJSmqFEm",
+      "name": "cpa_externo",
+      "x": 486.24979775432104,
+      "y": 211.29301121271357,
+      "locked": false,
+      "fields": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "unsigned": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": "yFAQihXIJu51Tgmp7pp5i"
+        },
+        {
+          "id": "oVl6TtiX0qIG530SFeQns",
+          "name": "usuario_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "width": 283
     }
   ],
   "relationships": [
     {
-      "id": "r_fk_usuarios_perfil",
-      "name": "fk_usuarios_perfil",
-      "startTableId": "t_perfis",
-      "endTableId": "t_usuarios",
-      "startFieldId": "f_perfis_id",
-      "endFieldId": "f_usuarios_perfil_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Restrict"
+      "startTableId": "DOlV7BEcE_25vr61wkTUb",
+      "startFieldId": "1iCcm1cQaBX3zHcL5Ll09",
+      "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
+      "endFieldId": "r-3ELe0Lcm2iCxP74FSv7",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "1iCcm1cQaBX3zHcL5Ll09",
+          "endFieldId": "r-3ELe0Lcm2iCxP74FSv7"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_aluno_usuario_id_usuario",
+      "color": "#cc0e0e",
+      "id": "05C-ZnH4x0VvEeXoAEr3D"
     },
     {
-      "id": "r_fk_usuarios_curso",
-      "name": "fk_usuarios_curso",
-      "startTableId": "t_cursos",
-      "endTableId": "t_usuarios",
-      "startFieldId": "f_cursos_id",
-      "endFieldId": "f_usuarios_curso_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Set_null"
+      "startTableId": "uBPKyshICSE7cRSrJOXrR",
+      "startFieldId": "qYkGe0UZr9R1B-DV1fKuc",
+      "endTableId": "DOlV7BEcE_25vr61wkTUb",
+      "endFieldId": "ptmF5OWiVLdMn-WrgJZwO",
+      "cardinality": "one_to_one",
+      "fields": [
+        {
+          "startFieldId": "qYkGe0UZr9R1B-DV1fKuc",
+          "endFieldId": "ptmF5OWiVLdMn-WrgJZwO"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_matricula_aluno_ra_aluno",
+      "color": "#808080",
+      "id": "7kaTdLX5h1-ZwQyR3-cch"
     },
     {
-      "id": "r_fk_usuarios_criado_por",
-      "name": "fk_usuarios_criado_por",
-      "startTableId": "t_usuarios",
-      "endTableId": "t_usuarios",
-      "startFieldId": "f_usuarios_id",
-      "endFieldId": "f_usuarios_criado_por",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Set_null",
-      "referenceTo": "end"
+      "startTableId": "v98jKI7D0rM55TJpd0Sbr",
+      "startFieldId": "Jq40IIR-XNEEqP2WcbkQa",
+      "endTableId": "uBPKyshICSE7cRSrJOXrR",
+      "endFieldId": "i1h7kbbUl4ssniLjAZxoo",
+      "cardinality": "one_to_one",
+      "fields": [
+        {
+          "startFieldId": "Jq40IIR-XNEEqP2WcbkQa",
+          "endFieldId": "i1h7kbbUl4ssniLjAZxoo"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_turma_id_matricula",
+      "color": "#808080",
+      "id": "ul9llun-EBBZxxtRp3mOa"
     },
     {
-      "id": "r_fk_curso_coord_curso",
-      "name": "fk_curso_coord_curso",
-      "startTableId": "t_cursos",
-      "endTableId": "t_curso_coordenadores",
-      "startFieldId": "f_cursos_id",
-      "endFieldId": "f_curso_coordenadores_curso_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
+      "startTableId": "sy5-FAa80iurhDrdX0wRy",
+      "startFieldId": "pOMR-j3HVLrgxOFlzQVve",
+      "endTableId": "v98jKI7D0rM55TJpd0Sbr",
+      "endFieldId": "Jq40IIR-XNEEqP2WcbkQa",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "pOMR-j3HVLrgxOFlzQVve",
+          "endFieldId": "Jq40IIR-XNEEqP2WcbkQa"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_compoe_id_turma_turma",
+      "color": "#808080",
+      "id": "2oM2MS5QyufZMx4rqXRNs"
     },
     {
-      "id": "r_fk_curso_coord_usuario",
-      "name": "fk_curso_coord_usuario",
-      "startTableId": "t_usuarios",
-      "endTableId": "t_curso_coordenadores",
-      "startFieldId": "f_usuarios_id",
-      "endFieldId": "f_curso_coordenadores_usuario_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
+      "startTableId": "sy5-FAa80iurhDrdX0wRy",
+      "startFieldId": "vONWuqR4zqcu2oQ3olcHG",
+      "endTableId": "R-PHpjccnb7M__FfSbwkm",
+      "endFieldId": "G010bVx1nk_ubQbGhVSR3",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "vONWuqR4zqcu2oQ3olcHG",
+          "endFieldId": "G010bVx1nk_ubQbGhVSR3"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_compoe_id_disciplina_disciplina",
+      "color": "#808080",
+      "id": "rt2z8Vqnij6dI162pH4oH"
     },
     {
-      "id": "r_fk_aulas_curso",
-      "name": "fk_aulas_curso",
-      "startTableId": "t_cursos",
-      "endTableId": "t_aulas",
-      "startFieldId": "f_cursos_id",
-      "endFieldId": "f_aulas_curso_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
+      "startTableId": "LgxdVt9PZIx4bNT0ewTyP",
+      "startFieldId": "oVl6TtiX0qIG530SFeQns",
+      "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
+      "endFieldId": "r-3ELe0Lcm2iCxP74FSv7",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "oVl6TtiX0qIG530SFeQns",
+          "endFieldId": "r-3ELe0Lcm2iCxP74FSv7"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_coordenador_usuario_id_usuario",
+      "color": "#808080",
+      "id": "7lv_cQ5XBqbo7XEV7Fz_w"
     },
     {
-      "id": "r_fk_aulas_professor",
-      "name": "fk_aulas_professor",
-      "startTableId": "t_usuarios",
-      "endTableId": "t_aulas",
-      "startFieldId": "f_usuarios_id",
-      "endFieldId": "f_aulas_professor_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Set_null"
+      "startTableId": "eGb31X7IrsC9MwJSmqFEm",
+      "startFieldId": "oVl6TtiX0qIG530SFeQns",
+      "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
+      "endFieldId": "r-3ELe0Lcm2iCxP74FSv7",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "oVl6TtiX0qIG530SFeQns",
+          "endFieldId": "r-3ELe0Lcm2iCxP74FSv7"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_cpa_externo_usuario_id_usuario",
+      "color": "#808080",
+      "id": "XbHu90snmG0IcGSyCDo7J"
     },
     {
-      "id": "r_fk_perfil_dashboard_perfil",
-      "name": "fk_perfil_dashboard_perfil",
-      "startTableId": "t_perfis",
-      "endTableId": "t_perfil_dashboard",
-      "startFieldId": "f_perfis_id",
-      "endFieldId": "f_perfil_dashboard_perfil_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
-    },
-    {
-      "id": "r_fk_perfil_dashboard_dashboard",
-      "name": "fk_perfil_dashboard_dashboard",
-      "startTableId": "t_dashboards",
-      "endTableId": "t_perfil_dashboard",
-      "startFieldId": "f_dashboards_id",
-      "endFieldId": "f_perfil_dashboard_dashboard_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
-    },
-    {
-      "id": "r_fk_documentos_autor",
-      "name": "fk_documentos_autor",
-      "startTableId": "t_usuarios",
-      "endTableId": "t_documentos",
-      "startFieldId": "f_usuarios_id",
-      "endFieldId": "f_documentos_autor_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Set_null"
-    },
-    {
-      "id": "r_fk_perfil_doc_perfil",
-      "name": "fk_perfil_doc_perfil",
-      "startTableId": "t_perfis",
-      "endTableId": "t_perfil_documento",
-      "startFieldId": "f_perfis_id",
-      "endFieldId": "f_perfil_documento_perfil_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
-    },
-    {
-      "id": "r_fk_perfil_doc_documento",
-      "name": "fk_perfil_doc_documento",
-      "startTableId": "t_documentos",
-      "endTableId": "t_perfil_documento",
-      "startFieldId": "f_documentos_id",
-      "endFieldId": "f_perfil_documento_documento_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
-    },
-    {
-      "id": "r_fk_mural_autor",
-      "name": "fk_mural_autor",
-      "startTableId": "t_usuarios",
-      "endTableId": "t_mural_devolutivas",
-      "startFieldId": "f_usuarios_id",
-      "endFieldId": "f_mural_devolutivas_autor_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Set_null"
-    },
-    {
-      "id": "r_fk_perfil_pagina_perfil",
-      "name": "fk_perfil_pagina_perfil",
-      "startTableId": "t_perfis",
-      "endTableId": "t_perfil_pagina",
-      "startFieldId": "f_perfis_id",
-      "endFieldId": "f_perfil_pagina_perfil_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
-    },
-    {
-      "id": "r_fk_perfil_pagina_pagina",
-      "name": "fk_perfil_pagina_pagina",
-      "startTableId": "t_paginas",
-      "endTableId": "t_perfil_pagina",
-      "startFieldId": "f_paginas_id",
-      "endFieldId": "f_perfil_pagina_pagina_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
-    },
-    {
-      "id": "r_fk_propostas_criado_por",
-      "name": "fk_propostas_criado_por",
-      "startTableId": "t_usuarios",
-      "endTableId": "t_propostas_planejamento",
-      "startFieldId": "f_usuarios_id",
-      "endFieldId": "f_propostas_planejamento_criado_por",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Restrict"
-    },
-    {
-      "id": "r_fk_votos_proposta",
-      "name": "fk_votos_proposta",
-      "startTableId": "t_propostas_planejamento",
-      "endTableId": "t_votos_planejamento",
-      "startFieldId": "f_propostas_planejamento_id",
-      "endFieldId": "f_votos_planejamento_proposta_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
-    },
-    {
-      "id": "r_fk_votos_usuario",
-      "name": "fk_votos_usuario",
-      "startTableId": "t_usuarios",
-      "endTableId": "t_votos_planejamento",
-      "startFieldId": "f_usuarios_id",
-      "endFieldId": "f_votos_planejamento_usuario_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
-    },
-    {
-      "id": "r_fk_sessoes_usuario",
-      "name": "fk_sessoes_usuario",
-      "startTableId": "t_usuarios",
-      "endTableId": "t_sessoes",
-      "startFieldId": "f_usuarios_id",
-      "endFieldId": "f_sessoes_usuario_id",
-      "cardinality": "One_to_many",
-      "updateConstraint": "No_action",
-      "deleteConstraint": "Cascade"
+      "startTableId": "pRMCcJK2x-0CUIHxdAnTr",
+      "startFieldId": "oVl6TtiX0qIG530SFeQns",
+      "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
+      "endFieldId": "r-3ELe0Lcm2iCxP74FSv7",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "oVl6TtiX0qIG530SFeQns",
+          "endFieldId": "r-3ELe0Lcm2iCxP74FSv7"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_administrativo_usuario_id_usuario",
+      "color": "#808080",
+      "id": "9NDNdsC_khTeYJhJcWsAy"
     }
   ],
   "notes": [],
@@ -1760,6 +738,25 @@
   "views": [],
   "database": "postgresql",
   "types": [],
-  "enums": [],
+  "enums": [
+    {
+      "id": "LZZCBIsq0yTKCm-Y6sMn3",
+      "name": "curso",
+      "values": [
+        "ciencia da computacao",
+        "engenharia de software",
+        "analise de sistemas",
+        "sistema da informacao"
+      ]
+    },
+    {
+      "id": "TmGwoHa7DPkMN2iyrXRCT",
+      "name": "periodo",
+      "values": [
+        "matutino",
+        "noturno"
+      ]
+    }
+  ],
   "title": "Untitled Diagram"
 }
