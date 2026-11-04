@@ -3,8 +3,8 @@
     {
       "id": "ZHs4xx3zJ_OYzH0_ZixR4",
       "name": "usuario",
-      "x": 191.78807341179248,
-      "y": 90.4453192524477,
+      "x": 197.14845597429252,
+      "y": 64.98350208057268,
       "locked": false,
       "fields": [
         {
@@ -102,6 +102,62 @@
           "comment": "",
           "size": "",
           "values": []
+        },
+        {
+          "id": "5juBIjqt5VPz5VrXkInGp",
+          "name": "aluno_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "SSE1fsmE_d1Pu9Ge0s9hu",
+          "name": "coordenador_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "RLrRJbX96-LdXcAqcFhM3",
+          "name": "admin_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "GnW1E0jXmxZbD8tT0C7F9",
+          "name": "cpa_externo_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
         }
       ],
       "comment": "",
@@ -110,17 +166,17 @@
       "color": "#175e7a",
       "collapsed": false,
       "hidden": false,
-      "width": 181
+      "width": 247
     },
     {
       "id": "DOlV7BEcE_25vr61wkTUb",
       "name": "aluno",
-      "x": -79.62347743338415,
-      "y": 319.2110476076459,
+      "x": -228.56233510227804,
+      "y": 223.14199911559388,
       "locked": false,
       "fields": [
         {
-          "name": "ra",
+          "name": "id",
           "type": "INTEGER",
           "default": "",
           "check": "",
@@ -131,20 +187,6 @@
           "increment": false,
           "comment": "",
           "id": "ptmF5OWiVLdMn-WrgJZwO"
-        },
-        {
-          "id": "1iCcm1cQaBX3zHcL5Ll09",
-          "name": "usuario_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
         },
         {
           "id": "lt8xAqAazNK2sCDynikRE",
@@ -171,300 +213,10 @@
       "hidden": false
     },
     {
-      "id": "R-PHpjccnb7M__FfSbwkm",
-      "name": "disciplina",
-      "x": -1405.520628512882,
-      "y": 337.5000425694987,
-      "locked": false,
-      "fields": [
-        {
-          "name": "id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": true,
-          "unsigned": true,
-          "notNull": true,
-          "increment": true,
-          "comment": "",
-          "id": "G010bVx1nk_ubQbGhVSR3"
-        },
-        {
-          "id": "frJM0ALa2w8PYaigZNn1M",
-          "name": "nome",
-          "type": "VARCHAR",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": 255
-        },
-        {
-          "id": "zHVt4odDVxMt9QKSXUAj9",
-          "name": "pertence_curso",
-          "type": "CURSO",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": [],
-          "isArray": true
-        },
-        {
-          "id": "r3hQbMAzkEFbtpF-dhVLW",
-          "name": "data_criacao",
-          "type": "DATE",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        }
-      ],
-      "comment": "",
-      "indices": [],
-      "uniqueConstraints": [],
-      "color": "#175e7a",
-      "collapsed": false
-    },
-    {
-      "id": "uBPKyshICSE7cRSrJOXrR",
-      "name": "matricula",
-      "x": -494.5332728728371,
-      "y": 330.1199740394821,
-      "locked": false,
-      "fields": [
-        {
-          "name": "id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": true,
-          "unsigned": true,
-          "notNull": true,
-          "increment": true,
-          "comment": "",
-          "id": "fRM5N79FA23lRMkNjF88m"
-        },
-        {
-          "id": "qYkGe0UZr9R1B-DV1fKuc",
-          "name": "aluno_ra",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        },
-        {
-          "id": "i1h7kbbUl4ssniLjAZxoo",
-          "name": "turma_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        },
-        {
-          "id": "3HT6-XQW-EQrT_t8Wfbs3",
-          "name": "ano",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        },
-        {
-          "id": "wJfjhWuAXMbb6ftUNfLdT",
-          "name": "semestre",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        },
-        {
-          "id": "aBawX1u4_kBz9OuSRb8zT",
-          "name": "presencial",
-          "type": "BOOLEAN",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        },
-        {
-          "id": "Hc6t5xAkcY_u0Avk077-x",
-          "name": "ativo",
-          "type": "BOOLEAN",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        }
-      ],
-      "comment": "",
-      "indices": [],
-      "uniqueConstraints": [],
-      "color": "#175e7a",
-      "collapsed": false
-    },
-    {
-      "id": "v98jKI7D0rM55TJpd0Sbr",
-      "name": "turma",
-      "x": -836.2383411091018,
-      "y": 339.6120585718106,
-      "locked": false,
-      "fields": [
-        {
-          "name": "id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": true,
-          "unsigned": true,
-          "notNull": true,
-          "increment": true,
-          "comment": "",
-          "id": "Jq40IIR-XNEEqP2WcbkQa"
-        },
-        {
-          "id": "rb65C9G1gHmYDAyPrWPXi",
-          "name": "nome",
-          "type": "VARCHAR",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": 255
-        },
-        {
-          "id": "e09CuFNqHrXEyC0jl6f3J",
-          "name": "data_criacao",
-          "type": "TIME",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        },
-        {
-          "id": "1rLFJK9qVV9ZGCd6Lywtb",
-          "name": "periodo",
-          "type": "PERIODO",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        }
-      ],
-      "comment": "",
-      "indices": [],
-      "uniqueConstraints": [],
-      "color": "#175e7a",
-      "collapsed": false
-    },
-    {
-      "id": "sy5-FAa80iurhDrdX0wRy",
-      "name": "compoe",
-      "x": -1123.1085896996178,
-      "y": 142.61103227655713,
-      "locked": false,
-      "fields": [
-        {
-          "id": "pOMR-j3HVLrgxOFlzQVve",
-          "name": "id_turma",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        },
-        {
-          "id": "vONWuqR4zqcu2oQ3olcHG",
-          "name": "id_disciplina",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": true,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
-        }
-      ],
-      "comment": "",
-      "indices": [],
-      "uniqueConstraints": [],
-      "color": "#175e7a",
-      "collapsed": false
-    },
-    {
       "id": "LgxdVt9PZIx4bNT0ewTyP",
       "name": "coordenador",
-      "x": -124.05890751621439,
-      "y": -125.07242029638644,
+      "x": -281.7103237061516,
+      "y": 466.32413991811336,
       "locked": false,
       "fields": [
         {
@@ -479,20 +231,6 @@
           "increment": true,
           "comment": "",
           "id": "yFAQihXIJu51Tgmp7pp5i"
-        },
-        {
-          "id": "oVl6TtiX0qIG530SFeQns",
-          "name": "usuario_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
         }
       ],
       "comment": "",
@@ -505,8 +243,8 @@
     {
       "id": "pRMCcJK2x-0CUIHxdAnTr",
       "name": "administrativo",
-      "x": 452.9765162431477,
-      "y": -111.95145687806868,
+      "x": 674.687173776744,
+      "y": 240.97571225704385,
       "locked": false,
       "fields": [
         {
@@ -521,20 +259,6 @@
           "increment": true,
           "comment": "",
           "id": "yFAQihXIJu51Tgmp7pp5i"
-        },
-        {
-          "id": "oVl6TtiX0qIG530SFeQns",
-          "name": "usuario_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
         }
       ],
       "comment": "",
@@ -547,8 +271,8 @@
     {
       "id": "eGb31X7IrsC9MwJSmqFEm",
       "name": "cpa_externo",
-      "x": 486.24979775432104,
-      "y": 211.29301121271357,
+      "x": 681.1490675804582,
+      "y": 462.58743165779794,
       "locked": false,
       "fields": [
         {
@@ -563,20 +287,6 @@
           "increment": true,
           "comment": "",
           "id": "yFAQihXIJu51Tgmp7pp5i"
-        },
-        {
-          "id": "oVl6TtiX0qIG530SFeQns",
-          "name": "usuario_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": true,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "size": "",
-          "values": []
         }
       ],
       "comment": "",
@@ -589,148 +299,76 @@
   ],
   "relationships": [
     {
-      "startTableId": "DOlV7BEcE_25vr61wkTUb",
-      "startFieldId": "1iCcm1cQaBX3zHcL5Ll09",
-      "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
-      "endFieldId": "r-3ELe0Lcm2iCxP74FSv7",
-      "cardinality": "one_to_many",
-      "fields": [
-        {
-          "startFieldId": "1iCcm1cQaBX3zHcL5Ll09",
-          "endFieldId": "r-3ELe0Lcm2iCxP74FSv7"
-        }
-      ],
-      "updateConstraint": "No action",
-      "deleteConstraint": "No action",
-      "name": "fk_aluno_usuario_id_usuario",
-      "color": "#cc0e0e",
-      "id": "05C-ZnH4x0VvEeXoAEr3D"
-    },
-    {
-      "startTableId": "uBPKyshICSE7cRSrJOXrR",
-      "startFieldId": "qYkGe0UZr9R1B-DV1fKuc",
-      "endTableId": "DOlV7BEcE_25vr61wkTUb",
-      "endFieldId": "ptmF5OWiVLdMn-WrgJZwO",
-      "cardinality": "many_to_one",
-      "fields": [
-        {
-          "startFieldId": "qYkGe0UZr9R1B-DV1fKuc",
-          "endFieldId": "ptmF5OWiVLdMn-WrgJZwO"
-        }
-      ],
-      "updateConstraint": "No action",
-      "deleteConstraint": "No action",
-      "name": "fk_matricula_aluno_ra_aluno",
-      "color": "#808080",
-      "id": "7kaTdLX5h1-ZwQyR3-cch"
-    },
-    {
-      "startTableId": "uBPKyshICSE7cRSrJOXrR",
-      "startFieldId": "i1h7kbbUl4ssniLjAZxoo",
-      "endTableId": "v98jKI7D0rM55TJpd0Sbr",
-      "endFieldId": "Jq40IIR-XNEEqP2WcbkQa",
+      "startTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
+      "startFieldId": "GnW1E0jXmxZbD8tT0C7F9",
+      "endTableId": "eGb31X7IrsC9MwJSmqFEm",
+      "endFieldId": "yFAQihXIJu51Tgmp7pp5i",
       "cardinality": "one_to_one",
       "fields": [
         {
-          "startFieldId": "i1h7kbbUl4ssniLjAZxoo",
-          "endFieldId": "Jq40IIR-XNEEqP2WcbkQa"
+          "startFieldId": "GnW1E0jXmxZbD8tT0C7F9",
+          "endFieldId": "yFAQihXIJu51Tgmp7pp5i"
         }
       ],
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
-      "name": "fk_matricula_turma_id_turma",
+      "name": "fk_usuario_cpa_externo_id_cpa_externo",
       "color": "#808080",
-      "id": "ul9llun-EBBZxxtRp3mOa"
-    },
-    {
-      "startTableId": "sy5-FAa80iurhDrdX0wRy",
-      "startFieldId": "pOMR-j3HVLrgxOFlzQVve",
-      "endTableId": "v98jKI7D0rM55TJpd0Sbr",
-      "endFieldId": "Jq40IIR-XNEEqP2WcbkQa",
-      "cardinality": "one_to_many",
-      "fields": [
-        {
-          "startFieldId": "pOMR-j3HVLrgxOFlzQVve",
-          "endFieldId": "Jq40IIR-XNEEqP2WcbkQa"
-        }
-      ],
-      "updateConstraint": "No action",
-      "deleteConstraint": "No action",
-      "name": "fk_compoe_id_turma_turma",
-      "color": "#808080",
-      "id": "2oM2MS5QyufZMx4rqXRNs"
-    },
-    {
-      "startTableId": "sy5-FAa80iurhDrdX0wRy",
-      "startFieldId": "vONWuqR4zqcu2oQ3olcHG",
-      "endTableId": "R-PHpjccnb7M__FfSbwkm",
-      "endFieldId": "G010bVx1nk_ubQbGhVSR3",
-      "cardinality": "one_to_many",
-      "fields": [
-        {
-          "startFieldId": "vONWuqR4zqcu2oQ3olcHG",
-          "endFieldId": "G010bVx1nk_ubQbGhVSR3"
-        }
-      ],
-      "updateConstraint": "No action",
-      "deleteConstraint": "No action",
-      "name": "fk_compoe_id_disciplina_disciplina",
-      "color": "#808080",
-      "id": "rt2z8Vqnij6dI162pH4oH"
-    },
-    {
-      "startTableId": "LgxdVt9PZIx4bNT0ewTyP",
-      "startFieldId": "oVl6TtiX0qIG530SFeQns",
-      "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
-      "endFieldId": "r-3ELe0Lcm2iCxP74FSv7",
-      "cardinality": "one_to_many",
-      "fields": [
-        {
-          "startFieldId": "oVl6TtiX0qIG530SFeQns",
-          "endFieldId": "r-3ELe0Lcm2iCxP74FSv7"
-        }
-      ],
-      "updateConstraint": "No action",
-      "deleteConstraint": "No action",
-      "name": "fk_coordenador_usuario_id_usuario",
-      "color": "#808080",
-      "id": "7lv_cQ5XBqbo7XEV7Fz_w"
-    },
-    {
-      "startTableId": "eGb31X7IrsC9MwJSmqFEm",
-      "startFieldId": "oVl6TtiX0qIG530SFeQns",
-      "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
-      "endFieldId": "r-3ELe0Lcm2iCxP74FSv7",
-      "cardinality": "one_to_many",
-      "fields": [
-        {
-          "startFieldId": "oVl6TtiX0qIG530SFeQns",
-          "endFieldId": "r-3ELe0Lcm2iCxP74FSv7"
-        }
-      ],
-      "updateConstraint": "No action",
-      "deleteConstraint": "No action",
-      "name": "fk_cpa_externo_usuario_id_usuario",
-      "color": "#808080",
-      "id": "XbHu90snmG0IcGSyCDo7J"
+      "id": "QNCcWcvh3cKKCq13bPAwj"
     },
     {
       "startTableId": "pRMCcJK2x-0CUIHxdAnTr",
-      "startFieldId": "oVl6TtiX0qIG530SFeQns",
+      "startFieldId": "yFAQihXIJu51Tgmp7pp5i",
       "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
-      "endFieldId": "r-3ELe0Lcm2iCxP74FSv7",
-      "cardinality": "one_to_many",
+      "endFieldId": "RLrRJbX96-LdXcAqcFhM3",
+      "cardinality": "one_to_one",
       "fields": [
         {
-          "startFieldId": "oVl6TtiX0qIG530SFeQns",
-          "endFieldId": "r-3ELe0Lcm2iCxP74FSv7"
+          "startFieldId": "yFAQihXIJu51Tgmp7pp5i",
+          "endFieldId": "RLrRJbX96-LdXcAqcFhM3"
         }
       ],
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
-      "name": "fk_administrativo_usuario_id_usuario",
+      "name": "fk_administrativo_id_usuario",
       "color": "#808080",
-      "id": "9NDNdsC_khTeYJhJcWsAy"
+      "id": "44iQBdQKIKfNd4zolVHVK"
+    },
+    {
+      "startTableId": "DOlV7BEcE_25vr61wkTUb",
+      "startFieldId": "ptmF5OWiVLdMn-WrgJZwO",
+      "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
+      "endFieldId": "5juBIjqt5VPz5VrXkInGp",
+      "cardinality": "one_to_one",
+      "fields": [
+        {
+          "startFieldId": "ptmF5OWiVLdMn-WrgJZwO",
+          "endFieldId": "5juBIjqt5VPz5VrXkInGp"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_aluno_id_usuario",
+      "color": "#808080",
+      "id": "SAIguLcp0g7fSY0-kSbAM"
+    },
+    {
+      "startTableId": "LgxdVt9PZIx4bNT0ewTyP",
+      "startFieldId": "yFAQihXIJu51Tgmp7pp5i",
+      "endTableId": "ZHs4xx3zJ_OYzH0_ZixR4",
+      "endFieldId": "SSE1fsmE_d1Pu9Ge0s9hu",
+      "cardinality": "one_to_one",
+      "fields": [
+        {
+          "startFieldId": "yFAQihXIJu51Tgmp7pp5i",
+          "endFieldId": "SSE1fsmE_d1Pu9Ge0s9hu"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_coordenador_id_usuario",
+      "color": "#808080",
+      "id": "KQKk7eTm2WPy_vpVjfm6X"
     }
   ],
   "notes": [],
