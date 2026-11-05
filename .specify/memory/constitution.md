@@ -1,50 +1,59 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+  Sync Impact Report
+  Version change: (nenhuma - criação inicial) -> 1.0.0
+  Modified principles: nenhuma (constituição criada do zero)
+  Added sections: Core Principles, Regras de Estilo e Comunicação,
+    Qualidade e Revisão, Governance
+  Removed sections: nenhuma
+  Follow-up TODOs: nenhum
+-->
+
+# Portal CPA Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Legibilidade acima de concisão
+O código é escrito para seres humanos. Funções e algoritmos devem priorizar a
+clareza, mesmo que isso signifique mais linhas ou passos explícitos. Soluções
+compactas ou "inteligentes" só são aceitas quando não reduzem a legibilidade.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Nomes descritivos e autoexplicativos
+Variáveis, funções, classes e módulos devem revelar a intenção pelo próprio nome.
+Evitar abreviações, siglas obscuras e nomes genéricos como "data", "info" ou "tmp".
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Uma responsabilidade por função
+Cada função e cada algoritmo deve executar uma única tarefa de forma clara.
+Preferir funções menores e bem nomeadas a blocos longos e difíceis de acompanhar.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Fluxo de controle explícito e previsível
+Preferir estruturas simples e explícitas. Evitar truques, aninhamento profundo,
+efeitos colaterais escondidos e expressões que exijam esforço extra para entender.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Consistência e padrões do projeto
+Seguir as convenções já adotadas no projeto. Código consistente é mais previsível,
+mais fácil de revisar e mais barato de manter.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Regras de Estilo e Comunicação
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- É proibido o uso de emojis em qualquer artefato do projeto: código, comentários,
+  mensagens de commit, documentação, interface e logs.
+- Comentários devem explicar o "porquê", não repetir o "o quê" que o código já mostra.
+- Manter formatação consistente (indentação, espaçamento e quebra de linha) para
+  facilitar a leitura.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Qualidade e Revisão
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Toda alteração deve manter ou melhorar a legibilidade do código.
+- Revisões de código devem priorizar clareza, nomes e estrutura antes de
+  micro-otimizações.
+- Complexidade desnecessária deve ser justificada; soluções simples e legíveis são
+  preferidas.
+- Em caso de conflito entre brevidade e legibilidade, a legibilidade prevalece.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+Esta Constituição tem precedência sobre preferências individuais. Alterações exigem
+proposta documentada e aprovação, seguindo versionamento semântico (MAJOR.MINOR.PATCH).
+Toda revisão deve verificar a conformidade com os princípios acima.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-11-04 | **Last Amended**: 2026-11-04

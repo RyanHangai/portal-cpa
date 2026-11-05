@@ -1,1 +1,5 @@
 streamlit
+psycopg[binary,pool]
+streamlit-authenticator
+python-dotenv
+bcrypt
