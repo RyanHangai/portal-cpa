@@ -24,24 +24,6 @@
       }
     },
     {
-      "id_perfil": 3,
-      "nome": "Coordenador",
-      "permissoes": {
-        "acesso_banco_dados": false,
-        "dashboards_permitidos": [
-          "relatorio_curso",
-          "relatorio_professor",
-          "relatorio_aluno"
-        ],
-        "relatorios_permitidos": [
-          "relatorio_curso",
-          "relatorio_professor",
-          "relatorio_aluno"
-        ],
-        "paginas_publicas": ["mural_devolutivas", "contato"]
-      }
-    },
-    {
       "id_perfil": 4,
       "nome": "Diretor",
       "permissoes": {
