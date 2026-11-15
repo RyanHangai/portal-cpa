@@ -52,11 +52,19 @@ docker compose down -v
 Todas usam a senha `senha123`.
 
 - aluno@exemplo.com
-- professor@exemplo.com
 - coordenador@exemplo.com
-- diretor@exemplo.com
 - administrativo@exemplo.com
 - externo@exemplo.com
+
+## Criacao de usuarios
+
+Somente um usuario com cargo Administrativo pode criar usuarios. Na pagina
+Administracao, informe nome, e-mail, senha, um ou mais cargos e, opcionalmente,
+CPF. O usuario e criado sempre ativo.
+
+Observacao: o CPF e normalizado para apenas digitos (pontos e traco sao
+removidos) e gravado na coluna `usuario.cpf`, que e `VARCHAR(11)`. O valor
+completo de 11 digitos e preservado, inclusive zeros a esquerda.
 
 ## Testes
 
