@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS "usuario" (
 	"senha" VARCHAR NOT NULL,
 	"ativo" BOOLEAN NOT NULL,
 	"data_nasc" DATE,
-	"cpf" INTEGER,
+	"cpf" VARCHAR(11),
 	"aluno_id" INTEGER UNIQUE,
 	"coordenador_id" INTEGER UNIQUE,
 	"admin_id" INTEGER UNIQUE,
