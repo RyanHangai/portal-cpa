@@ -47,3 +47,13 @@ class CanalContato:
     nome: str
     url: str
     ordem: int
+
+
+@dataclass(frozen=True)
+class DadosCadastroUsuario:
+    nome: str
+    email: str
+    senha: str
+    cargos: tuple[str, ...]
+    curso: str | None = None
+    cpf: str | None = None

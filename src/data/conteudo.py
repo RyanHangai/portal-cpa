@@ -32,3 +32,12 @@ CANAIS_CONTATO = [
     {"nome": "Google Chats da CPA", "url": "https://chat.google.com/", "ordem": 1},
     {"nome": "Google Meet da CPA", "url": "https://meet.google.com/", "ordem": 2},
 ]
+
+CARGOS = ["aluno", "coordenador", "administrativo", "cpa_externo"]
+
+CURSOS = [
+    "ciencia da computacao",
+    "engenharia de software",
+    "analise de sistemas",
+    "sistema da informacao",
+]
