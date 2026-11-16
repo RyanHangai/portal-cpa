@@ -66,11 +66,24 @@ Observacao: o CPF e normalizado para apenas digitos (pontos e traco sao
 removidos) e gravado na coluna `usuario.cpf`, que e `VARCHAR(11)`. O valor
 completo de 11 digitos e preservado, inclusive zeros a esquerda.
 
-## Testes
+## Recuperacao de senha e sessao
 
-```sh
-docker compose exec app pytest
-```
+Na tela de login, a opcao "Esqueci minha senha" abre um formulario com e-mail, nova
+senha e confirmacao. O pedido fica pendente e so e aplicado quando um usuario
+Administrativo aprova, na pagina Administracao. Recusas e pedidos com mais de 24
+horas nao alteram a senha.
+
+A mensagem exibida apos o envio e a mesma para e-mail existente e inexistente, para
+nao revelar quais contas estao cadastradas.
+
+Depois do login, o portal guarda a sessao em um cookie assinado, `portal_cpa_sessao`,
+valido por 168 horas (uma semana) a partir daquele login. Recarregar a pagina ou
+reabrir o navegador mantem o usuario autenticado; "Sair" remove o cookie. A sessao e
+revalidada a cada carga e deixa de valer se o usuario for desativado.
+
+O schema agora inclui a tabela `solicitacao_senha`; bancos criados antes desta
+feature precisam de volume novo (`docker compose down -v`).
+
 
 ## Estrutura
 
@@ -80,4 +93,3 @@ docker compose exec app pytest
 - `src/views`: paginas
 - `src/ui`: layout compartilhado
 - `database`: schema e dados iniciais
-- `specs/001-portal-cpa`: especificacao, plano e tarefas

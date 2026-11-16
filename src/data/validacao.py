@@ -13,6 +13,11 @@ def normalizar_cpf(cpf: str) -> str:
     return "".join(caractere for caractere in cpf if caractere.isdigit())
 
 
+def normalizar_email(email: str) -> str:
+    """Remove espacos das pontas e converte o e-mail para minusculo."""
+    return email.strip().lower()
+
+
 def validar_cadastro(dados: DadosCadastroUsuario) -> list[str]:
     erros: list[str] = []
 
@@ -38,5 +43,22 @@ def validar_cadastro(dados: DadosCadastroUsuario) -> list[str]:
         digitos = normalizar_cpf(dados.cpf)
         if len(digitos) != TAMANHO_CPF:
             erros.append("O CPF deve ter 11 digitos.")
+
+    return erros
+
+
+def validar_solicitacao_senha(
+    email: str,
+    nova_senha: str,
+    confirmacao: str,
+) -> list[str]:
+    erros: list[str] = []
+
+    if not email.strip():
+        erros.append("Informe o e-mail.")
+    if len(nova_senha) < TAMANHO_MINIMO_SENHA:
+        erros.append("A senha deve ter no minimo 8 caracteres.")
+    if nova_senha != confirmacao:
+        erros.append("A confirmacao deve ser igual a nova senha.")
 
     return erros

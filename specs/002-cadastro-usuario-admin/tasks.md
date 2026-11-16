@@ -188,3 +188,12 @@ Task: "Teste de integração de criar_usuario_com_cargos em tests/integration/te
 - Verificar que os testes falham antes da implementação.
 - O schema muda apenas em `usuario.cpf`: `INTEGER` passa a `VARCHAR(11)`.
 - `database/database.sql` e a unica fonte do schema; nao ha script de migracao. Bancos criados antes da alteracao precisam de volume novo (`docker compose down -v`).
+
+---
+
+## Phase 7: Convergence
+
+- [x] T024 Normalizar o e-mail (remover espaços das pontas e converter para minúsculo) antes da checagem de duplicidade e do INSERT em `src/data/repositories/usuarios.py`, ajustando também `buscar_por_email` para comparar o valor normalizado per FR-007 e data-model (partial)
+- [x] T025 Adicionar teste de UI com `streamlit.testing.v1.AppTest` em `tests/ui/test_cadastro_visibilidade.py` confirmando que o formulário de criar usuário não aparece para Coordenador, Aluno e CPA Externo per plan: Testing e T018 (partial)
+- [x] T026 Implementar `BancoIndisponivel` em `src/data/errors.py` e traduzir falhas de conexão no cadastro, com mensagem amigável em `src/views/administracao.py` per contracts/data-access-cadastro.md (missing)
+- [x] T027 Aplicar o mínimo de 8 caracteres também na redefinição de senha em `src/views/administracao.py`, reutilizando `TAMANHO_MINIMO_SENHA` de `src/data/validacao.py` per FR-008 (partial)

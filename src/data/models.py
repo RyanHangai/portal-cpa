@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime
 
 
 @dataclass(frozen=True)
@@ -57,3 +57,18 @@ class DadosCadastroUsuario:
     cargos: tuple[str, ...]
     curso: str | None = None
     cpf: str | None = None
+
+
+@dataclass(frozen=True)
+class SolicitacaoSenha:
+    id: int
+    usuario_id: int
+    email: str
+    criado_em: datetime
+    situacao: str
+
+
+@dataclass(frozen=True)
+class SessaoAutenticada:
+    usuario_id: int
+    login_em: datetime

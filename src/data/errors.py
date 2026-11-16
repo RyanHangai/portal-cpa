@@ -8,3 +8,7 @@ class DadosInvalidos(Exception):
 
 class EmailDuplicado(Exception):
     """Indica que ja existe usuario com o e-mail informado."""
+
+
+class BancoIndisponivel(Exception):
+    """Indica que nao foi possivel conectar ao banco de dados."""

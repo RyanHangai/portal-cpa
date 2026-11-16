@@ -1,10 +1,13 @@
 """Consultas e comandos de usuario contra o schema existente."""
 from __future__ import annotations
 
+import psycopg
+from psycopg_pool import PoolTimeout
+
 from data.connection import conectar
-from data.errors import DadosInvalidos, EmailDuplicado
+from data.errors import BancoIndisponivel, DadosInvalidos, EmailDuplicado
 from data.models import DadosCadastroUsuario, Usuario
-from data.validacao import normalizar_cpf
+from data.validacao import normalizar_cpf, normalizar_email
 
 _COLUNAS = """
     id, nome, email, senha, ativo, aluno_id, coordenador_id, admin_id, cpa_externo_id
@@ -38,10 +41,19 @@ def _para_usuario(linha: dict) -> Usuario:
 
 
 def buscar_por_email(email: str) -> Usuario | None:
-    consulta = f"SELECT {_COLUNAS} FROM usuario WHERE email = %s"
+    consulta = f"SELECT {_COLUNAS} FROM usuario WHERE lower(email) = %s"
     with conectar() as conexao:
         with conexao.cursor() as cursor:
-            cursor.execute(consulta, (email,))
+            cursor.execute(consulta, (normalizar_email(email),))
+            linha = cursor.fetchone()
+    return _para_usuario(linha) if linha else None
+
+
+def buscar_por_id(usuario_id: int) -> Usuario | None:
+    consulta = f"SELECT {_COLUNAS} FROM usuario WHERE id = %s"
+    with conectar() as conexao:
+        with conexao.cursor() as cursor:
+            cursor.execute(consulta, (usuario_id,))
             linha = cursor.fetchone()
     return _para_usuario(linha) if linha else None
 
@@ -101,33 +113,42 @@ def _coluna_do_perfil(perfil: str) -> str:
 
 
 def criar_usuario_com_cargos(dados: DadosCadastroUsuario) -> Usuario:
+    email = normalizar_email(dados.email)
     cpf = normalizar_cpf(dados.cpf) if dados.cpf else None
 
-    with conectar() as conexao:
-        with conexao.cursor() as cursor:
-            cursor.execute("SELECT 1 FROM usuario WHERE email = %s", (dados.email,))
-            if cursor.fetchone() is not None:
-                raise EmailDuplicado(dados.email)
+    try:
+        with conectar() as conexao:
+            with conexao.cursor() as cursor:
+                cursor.execute(
+                    "SELECT 1 FROM usuario WHERE lower(email) = %s",
+                    (email,),
+                )
+                if cursor.fetchone() is not None:
+                    raise EmailDuplicado(email)
 
-            cursor.execute(
-                """
-                INSERT INTO usuario (nome, email, senha, ativo, cpf)
-                VALUES (%s, %s, %s, TRUE, %s)
-                RETURNING id
-                """,
-                (dados.nome, dados.email, dados.senha, cpf),
-            )
+                cursor.execute(
+                    """
+                    INSERT INTO usuario (nome, email, senha, ativo, cpf)
+                    VALUES (%s, %s, %s, TRUE, %s)
+                    RETURNING id
+                    """,
+                    (dados.nome, email, dados.senha, cpf),
+                )
 
-            usuario_id = cursor.fetchone()["id"]
-            for cargo in dados.cargos:
-                _vincular_cargo(cursor, usuario_id, cargo, dados.curso)
+                usuario_id = cursor.fetchone()["id"]
+                for cargo in dados.cargos:
+                    _vincular_cargo(cursor, usuario_id, cargo, dados.curso)
 
-        conexao.commit()
+            conexao.commit()
+    except (psycopg.OperationalError, PoolTimeout) as exc:
+        raise BancoIndisponivel(
+            "Nao foi possivel conectar ao banco de dados."
+        ) from exc
 
     return Usuario(
         id=usuario_id,
         nome=dados.nome,
-        email=dados.email,
+        email=email,
         ativo=True,
         perfis=tuple(dados.cargos),
         senha=dados.senha,

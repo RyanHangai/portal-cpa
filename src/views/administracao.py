@@ -5,17 +5,24 @@ import streamlit as st
 
 from auth.permissions import exigir_acesso, usuario_atual
 from data.conteudo import CARGOS, CURSOS
-from data.errors import DadosInvalidos, EmailDuplicado
+from data.errors import BancoIndisponivel, DadosInvalidos, EmailDuplicado
 from data.models import DadosCadastroUsuario
+from data.repositories.solicitacoes import (
+    aprovar_solicitacao,
+    listar_solicitacoes_pendentes,
+    recusar_solicitacao,
+)
 from data.repositories.usuarios import (
     buscar_por_email,
     criar_usuario_com_cargos,
     definir_senha,
     listar_ativos,
 )
-from data.validacao import validar_cadastro
+from data.validacao import TAMANHO_MINIMO_SENHA, validar_cadastro
 
 PERFIS_GESTORES = ("administrativo", "coordenador")
+CHAVE_AVISO_SOLICITACAO = "aviso_solicitacao_senha"
+MENSAGEM_SEM_SOLICITACOES = "Nao ha solicitacoes pendentes."
 
 
 def render() -> None:
@@ -26,6 +33,7 @@ def render() -> None:
     if "administrativo" in usuario.perfis:
         _formulario_criar_usuario()
         _formulario_redefinir_senha()
+        _secao_solicitacoes_senha(usuario)
         _mostrar_base_bruta()
     else:
         st.info("Coordenador gerencia apenas o proprio curso nesta entrega.")
@@ -69,6 +77,8 @@ def _formulario_criar_usuario() -> None:
         st.error("Ja existe usuario com este e-mail.")
     except DadosInvalidos as exc:
         st.error(str(exc))
+    except BancoIndisponivel as exc:
+        st.error(str(exc))
     else:
         st.success(f"Usuario {usuario.nome} criado com sucesso.")
 
@@ -80,12 +90,67 @@ def _formulario_redefinir_senha() -> None:
         enviado = st.form_submit_button("Redefinir senha")
 
     if enviado and email and nova_senha:
+        if len(nova_senha) < TAMANHO_MINIMO_SENHA:
+            st.error("A senha deve ter no minimo 8 caracteres.")
+            return
         alvo = buscar_por_email(email)
         if alvo is None:
             st.error("Usuario nao encontrado.")
         else:
             definir_senha(alvo.id, nova_senha)
             st.success("Senha redefinida.")
+
+
+def _secao_solicitacoes_senha(usuario) -> None:
+    st.subheader("Solicitacoes de senha")
+
+    aviso = st.session_state.pop(CHAVE_AVISO_SOLICITACAO, None)
+    if aviso:
+        st.success(aviso)
+
+    try:
+        solicitacoes = listar_solicitacoes_pendentes()
+    except BancoIndisponivel as exc:
+        st.error(str(exc))
+        return
+
+    if not solicitacoes:
+        st.info(MENSAGEM_SEM_SOLICITACOES)
+        return
+
+    for solicitacao in solicitacoes:
+        colunas = st.columns([3, 2, 1, 1])
+        colunas[0].write(solicitacao.email)
+        colunas[1].write(solicitacao.criado_em.strftime("%d/%m/%Y %H:%M"))
+        if colunas[2].button("Aprovar", key=f"aprovar_{solicitacao.id}"):
+            _decidir_solicitacao(
+                aprovar_solicitacao, "aprovada", solicitacao.id, usuario.id
+            )
+        if colunas[3].button("Recusar", key=f"recusar_{solicitacao.id}"):
+            _decidir_solicitacao(
+                recusar_solicitacao, "recusada", solicitacao.id, usuario.id
+            )
+
+
+def _decidir_solicitacao(
+    decidir,
+    resultado: str,
+    solicitacao_id: int,
+    administrador_id: int,
+) -> None:
+    try:
+        decidida = decidir(solicitacao_id, administrador_id)
+    except BancoIndisponivel as exc:
+        st.error(str(exc))
+        return
+
+    if decidida:
+        st.session_state[CHAVE_AVISO_SOLICITACAO] = f"Solicitacao {resultado}."
+    else:
+        st.session_state[CHAVE_AVISO_SOLICITACAO] = (
+            "Esta solicitacao ja havia sido decidida."
+        )
+    st.rerun()
 
 
 def _mostrar_base_bruta() -> None:
