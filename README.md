@@ -22,9 +22,9 @@ Desenvolver um portal web para a CPA que centralize e apresente, de forma estrut
 - [x] Levantamento de requisitos com a CPA.
 - [x] Modelagem do banco de dados e criação dos perfis de acesso.
 - [x] Desenvolvimento do portal e integração dos dashboards.
-- [ ] Criação do mural de devolutivas e área de relatórios.
-- [ ] Testes e validação com usuários reais.
-- [ ] Implantação e treinamento dos usuários.
+- [x] Criação do mural de devolutivas e área de relatórios.
+- [x] Testes e validação com usuários reais.
+- [x] Implantação e treinamento dos usuários.
 
 
 ## Como rodar
